@@ -1,7 +1,33 @@
+import java.util.ArrayList;
 
-
-public class StackArray {
-
+public class StackArray<E> {
+    private ArrayList<E> array;
+    public StackArray(){
+        array = new ArrayList<>();
+    }
+    public E push(E item){
+        array.add(0, item);
+        return item;
+    }
+    public E pop(){
+        return array.remove(0);
+    }
+    public E peek(){
+        return array.get(0);
+    }
+    public void display(){
+        QueueArray<E> current = new QueueArray<>();
+        while (!isEmpty()) {
+            System.out.print(current.enqueue(pop()));
+        }
+        array = current.getArray();
+    }
+    public int size(){
+        return array.size();
+    }
+    public boolean isEmpty(){
+        return peek() == null;
+    }
 }
 
 
